@@ -1,28 +1,28 @@
-# Dependencies
+# 依存関係
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Production build
+# プロダクションビルド
 dist/
 
-# Environment variables
+# 環境変数
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# IDE and editor files
+# IDEとエディタファイル
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# OS generated files
+# OS生成ファイル
 .DS_Store
 .DS_Store?
 ._*
@@ -31,63 +31,63 @@ dist/
 ehthumbs.db
 Thumbs.db
 
-# Logs
+# ログファイル
 logs
 *.log
 
-# Runtime data
+# ランタイムデータ
 pids
 *.pid
 *.seed
 *.pid.lock
 
-# Coverage directory used by tools like istanbul
+# カバレッジディレクトリ（istanbul等のツール用）
 coverage/
 *.lcov
 
-# nyc test coverage
+# nycテストカバレッジ
 .nyc_output
 
-# ESLint cache
+# ESLintキャッシュ
 .eslintcache
 
-# Microbundle cache
+# Microbundleキャッシュ
 .rpt2_cache/
 .rts2_cache_cjs/
 .rts2_cache_es/
 .rts2_cache_umd/
 
-# Optional npm cache directory
+# npmキャッシュディレクトリ（オプション）
 .npm
 
-# Optional eslint cache
+# ESLintキャッシュ（オプション）
 .eslintcache
 
-# Output of 'npm pack'
+# 'npm pack'の出力
 *.tgz
 
-# Yarn Integrity file
+# Yarn整合性ファイル
 .yarn-integrity
 
-# parcel-bundler cache (https://parceljs.org/)
+# parcel-bundlerキャッシュ (https://parceljs.org/)
 .cache
 .parcel-cache
 
-# Next.js build output
+# Next.jsビルド出力
 .next
 
-# Nuxt.js build / generate output
+# Nuxt.jsビルド / 生成出力
 .nuxt
 
-# Storybook build outputs
+# Storybookビルド出力
 .out
 .storybook-out
 
-# Temporary folders
+# 一時フォルダ
 tmp/
 temp/
 
-# Editor directories and files
+# エディタのディレクトリとファイル
 .vscode/*
 !.vscode/extensions.json
 .idea

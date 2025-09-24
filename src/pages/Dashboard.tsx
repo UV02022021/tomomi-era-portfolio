@@ -530,18 +530,132 @@ const Dashboard: React.FC = () => {
 
       {/* Charts Row */}
       <motion.div variants={itemVariants} className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-        {/* Design Process Chart - 改良版 */}
-        <div className="bg-white rounded-lg sm:rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg border border-slate-200">
-          <div className="flex items-center justify-between mb-4 lg:mb-6">
-            <h2 className="text-base sm:text-lg lg:text-xl font-bold text-slate-800 flex items-center space-x-2">
-              <PieChart className="w-4 h-4 lg:w-5 lg:h-5" />
+        {/* Design Process Chart - 完全レスポンシブ対応版 */}
+        <div className="bg-white rounded-lg sm:rounded-xl lg:rounded-2xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-lg border border-slate-200">
+          <div className="flex items-center justify-between mb-3 sm:mb-4 lg:mb-6">
+            <h2 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-slate-800 flex items-center space-x-1 sm:space-x-2">
+              <PieChart className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
               <span>デザインプロセス配分</span>
             </h2>
           </div>
-          <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between space-y-6 lg:space-y-0">
-            {/* 改良された円グラフ */}
-            <div className="relative w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56">
-              <svg className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 transform -rotate-90" viewBox="0 0 100 100">
+          
+          {/* モバイル・タブレット専用レイアウト */}
+          <div className="block lg:hidden">
+            {/* 円グラフ - 中央配置 */}
+            <div className="flex justify-center mb-4 sm:mb-6">
+              <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48">
+                <svg className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 transform -rotate-90" viewBox="0 0 100 100">
+                  {/* 背景円 */}
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="35"
+                    fill="transparent"
+                    stroke="#f1f5f9"
+                    strokeWidth="10" />
+                  
+                  {/* データセグメント */}
+                  {designProcessData.reduce((acc, item, index) => {
+                    const previousPercentage = designProcessData.slice(0, index).reduce((sum, prev) => sum + prev.percentage, 0);
+                    const circumference = 2 * Math.PI * 35;
+                    const strokeDasharray = `${item.percentage / 100 * circumference} ${circumference}`;
+                    const strokeDashoffset = -(previousPercentage / 100 * circumference);
+
+                    acc.push(
+                      <motion.circle
+                        key={index}
+                        cx="50"
+                        cy="50"
+                        r="35"
+                        fill="transparent"
+                        strokeWidth="10"
+                        strokeDasharray={strokeDasharray}
+                        strokeDashoffset={strokeDashoffset}
+                        stroke={item.color}
+                        strokeLinecap="round"
+                        initial={{ strokeDasharray: `0 ${circumference}` }}
+                        animate={{ strokeDasharray }}
+                        transition={{ duration: 1.5, delay: index * 0.2, ease: "easeOut" }}
+                        className="drop-shadow-sm filter-none" />
+                    );
+                    return acc;
+                  }, [] as JSX.Element[])}
+                  
+                  {/* 中央背景 */}
+                  <defs>
+                    <radialGradient id="centerGradientMobile" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#f8fafc" />
+                      <stop offset="100%" stopColor="#e2e8f0" />
+                    </radialGradient>
+                  </defs>
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="18"
+                    fill="url(#centerGradientMobile)"
+                    className="drop-shadow-sm" />
+                </svg>
+                
+                {/* 中央テキスト */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <motion.div
+                      className="text-base sm:text-lg md:text-xl font-bold text-slate-800"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.8, delay: 1 }}>
+                      100%
+                    </motion.div>
+                    <div className="text-xs sm:text-sm text-slate-600 font-medium">配分率</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* モバイル専用凡例 - グリッド形式 */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+              {designProcessData.map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="p-3 sm:p-4 bg-gradient-to-r from-slate-50 to-gray-50 rounded-lg border border-slate-200 hover:shadow-md transition-all duration-200"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}>
+                  
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center space-x-2">
+                      <div
+                        className="w-3 h-3 sm:w-4 sm:h-4 rounded-full shadow-sm border border-white"
+                        style={{ backgroundColor: item.color }}>
+                      </div>
+                      <span className="text-xs sm:text-sm font-semibold text-slate-800">{item.percentage}%</span>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-2">
+                    <span className="text-xs sm:text-sm font-medium text-slate-700 leading-tight block">{item.name}</span>
+                  </div>
+                  
+                  {/* プログレスバー */}
+                  <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                    <motion.div
+                      className="h-full rounded-full"
+                      style={{ backgroundColor: item.color }}
+                      initial={{ width: 0 }}
+                      animate={{ width: `${item.percentage}%` }}
+                      transition={{ duration: 1.2, delay: index * 0.2, ease: "easeOut" }}>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          
+          {/* デスクトップレイアウト */}
+          <div className="hidden lg:flex lg:items-center lg:justify-between lg:space-x-8">
+            {/* デスクトップ円グラフ */}
+            <div className="relative w-56 h-56 xl:w-64 xl:h-64 flex-shrink-0">
+              <svg className="w-56 h-56 xl:w-64 xl:h-64 transform -rotate-90" viewBox="0 0 100 100">
                 {/* 背景円 */}
                 <circle
                   cx="50"
@@ -550,7 +664,6 @@ const Dashboard: React.FC = () => {
                   fill="transparent"
                   stroke="#f1f5f9"
                   strokeWidth="8" />
-
                 
                 {/* データセグメント */}
                 {designProcessData.reduce((acc, item, index) => {
@@ -574,15 +687,14 @@ const Dashboard: React.FC = () => {
                       initial={{ strokeDasharray: `0 ${circumference}` }}
                       animate={{ strokeDasharray }}
                       transition={{ duration: 1.5, delay: index * 0.2, ease: "easeOut" }}
-                      className="drop-shadow-sm" />
-
+                      className="drop-shadow-sm hover:drop-shadow-lg transition-all duration-300" />
                   );
                   return acc;
                 }, [] as JSX.Element[])}
                 
-                {/* 中央のグラデーション背景 */}
+                {/* 中央背景 */}
                 <defs>
-                  <radialGradient id="centerGradient" cx="50%" cy="50%" r="50%">
+                  <radialGradient id="centerGradientDesktop" cx="50%" cy="50%" r="50%">
                     <stop offset="0%" stopColor="#f8fafc" />
                     <stop offset="100%" stopColor="#e2e8f0" />
                   </radialGradient>
@@ -591,58 +703,57 @@ const Dashboard: React.FC = () => {
                   cx="50"
                   cy="50"
                   r="20"
-                  fill="url(#centerGradient)"
+                  fill="url(#centerGradientDesktop)"
                   className="drop-shadow-sm" />
-
               </svg>
               
-              {/* 中央のテキスト */}
+              {/* 中央テキスト */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
                   <motion.div
-                    className="text-lg sm:text-xl lg:text-3xl font-bold text-slate-800"
+                    className="text-2xl xl:text-3xl font-bold text-slate-800"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 0.8, delay: 1 }}>
-
                     100%
                   </motion.div>
-                  <div className="text-xs lg:text-sm text-slate-600 font-medium">配分率</div>
+                  <div className="text-sm xl:text-base text-slate-600 font-medium">配分率</div>
                 </div>
               </div>
             </div>
             
-            {/* 改良された凡例 */}
-            <div className="space-y-3 lg:space-y-4 w-full lg:w-auto lg:ml-8">
-              {designProcessData.map((item, index) =>
-              <motion.div
-                key={index}
-                className="flex items-center justify-between lg:justify-start lg:space-x-8 p-2 rounded-lg hover:bg-slate-50 transition-colors duration-200"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}>
-
-                  <div className="flex items-center space-x-3">
+            {/* デスクトップ凡例 */}
+            <div className="flex-1 space-y-4 xl:space-y-5">
+              {designProcessData.map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-center justify-between p-4 xl:p-5 bg-gradient-to-r from-slate-50 to-gray-50 rounded-xl border border-slate-200 hover:shadow-md hover:scale-[1.02] transition-all duration-300"
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}>
+                  
+                  <div className="flex items-center space-x-4">
                     <div
-                    className="w-4 h-4 rounded-full shadow-sm border border-white"
-                    style={{ backgroundColor: item.color }}>
+                      className="w-5 h-5 xl:w-6 xl:h-6 rounded-full shadow-lg border-2 border-white"
+                      style={{ backgroundColor: item.color }}>
+                    </div>
+                    <span className="text-base xl:text-lg font-semibold text-slate-700">{item.name}</span>
                   </div>
-                    <span className="text-sm sm:text-base font-medium text-slate-700">{item.name}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <span className="text-sm sm:text-base font-bold text-slate-800">{item.percentage}%</span>
-                    <div className="w-12 h-2 bg-slate-200 rounded-full overflow-hidden">
+                  
+                  <div className="flex items-center space-x-4">
+                    <span className="text-lg xl:text-xl font-bold text-slate-800 min-w-[3rem] text-right">{item.percentage}%</span>
+                    <div className="w-16 xl:w-20 h-3 bg-slate-200 rounded-full overflow-hidden shadow-inner">
                       <motion.div
-                      className="h-full rounded-full"
-                      style={{ backgroundColor: item.color }}
-                      initial={{ width: 0 }}
-                      animate={{ width: `${item.percentage}%` }}
-                      transition={{ duration: 1, delay: index * 0.2 }}>
-                    </motion.div>
+                        className="h-full rounded-full shadow-sm"
+                        style={{ backgroundColor: item.color }}
+                        initial={{ width: 0 }}
+                        animate={{ width: `${item.percentage}%` }}
+                        transition={{ duration: 1.2, delay: index * 0.25, ease: "easeOut" }}>
+                      </motion.div>
                     </div>
                   </div>
                 </motion.div>
-              )}
+              ))}
             </div>
           </div>
         </div>

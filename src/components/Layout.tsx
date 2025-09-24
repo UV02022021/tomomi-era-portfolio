@@ -31,7 +31,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className="flex items-center space-x-3">
           <div className="w-8 h-8 rounded-lg overflow-hidden">
             <img 
-              src="https://static.lumi.new/47/47c58cea288aa340f01af79ca581ab77.svg" 
+              src="/LOGO.svg" 
               alt="恵良友美"
               className="w-full h-full object-cover"
             />
@@ -54,7 +54,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="text-center">
               <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-slate-600">
                 <img 
-                  src="https://static.lumi.new/47/47c58cea288aa340f01af79ca581ab77.svg" 
+                  src="/LOGO.svg" 
                   alt="恵良友美"
                   className="w-full h-full object-cover"
                 />
@@ -126,7 +126,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   <div className="text-center">
                     <div className="w-16 h-16 rounded-full mx-auto mb-3 overflow-hidden ring-4 ring-slate-600">
                       <img 
-                        src="https://static.lumi.new/47/47c58cea288aa340f01af79ca581ab77.svg" 
+                        src="/LOGO.svg" 
                         alt="恵良友美"
                         className="w-full h-full object-cover"
                       />

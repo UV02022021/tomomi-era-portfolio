@@ -450,7 +450,7 @@ const Dashboard: React.FC = () => {
           </div>
 
           {/* ユニファイド・レスポンシブ・レイアウト */}
-          <div className="flex flex-col md:flex-row lg:flex-col xl:flex-row items-center justify-between gap-6 md:gap-8 lg:gap-6 xl:gap-8">
+          <div className="flex flex-col md:flex-row lg:flex-col 2xl:flex-row items-center justify-between gap-6 md:gap-8 lg:gap-6 2xl:gap-8">
 
             {/* 円グラフセクション */}
             <div className="relative flex justify-center flex-shrink-0">

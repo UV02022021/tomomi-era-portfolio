@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import {Palette, Code, Smartphone, Monitor, Users, Target, Figma, Layers, Eye, Zap, Brain, TestTube, Lightbulb, Search, BarChart3, MessageSquare, Globe, Shield, Award, TrendingUp, Clock, CheckCircle, ArrowRight, Star, Briefcase} from 'lucide-react'
+import { Palette, Code, Smartphone, Monitor, Users, Target, Figma, Layers, Eye, Zap, Brain, TestTube, Lightbulb, Search, BarChart3, MessageSquare, Globe, Shield, Award, TrendingUp, Clock, CheckCircle, ArrowRight, Star, Briefcase } from 'lucide-react'
 
 const Skills: React.FC = () => {
   const skillCategories = [
@@ -166,7 +166,7 @@ const Skills: React.FC = () => {
               </div>
               <h2 className="text-xl font-bold text-slate-800">{category.title}</h2>
             </div>
-            
+
             <div className="space-y-4">
               {category.skills.map((skill, skillIndex) => (
                 <div key={skillIndex} className="space-y-2">
@@ -201,7 +201,7 @@ const Skills: React.FC = () => {
             {specialties.length}つのコアスキル
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {specialties.map((specialty, index) => (
             <motion.div
@@ -211,7 +211,7 @@ const Skills: React.FC = () => {
             >
               {/* Background Gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br ${specialty.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`} />
-              
+
               {/* Header */}
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center space-x-4">
@@ -229,12 +229,12 @@ const Skills: React.FC = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Description */}
               <p className="text-slate-700 mb-6 leading-relaxed text-sm lg:text-base">
                 {specialty.description}
               </p>
-              
+
               {/* Achievements */}
               <div className="mb-6">
                 <h4 className="font-semibold text-slate-800 mb-3 flex items-center space-x-2">
@@ -250,7 +250,7 @@ const Skills: React.FC = () => {
                   ))}
                 </div>
               </div>
-              
+
               {/* Methods */}
               <div className="mb-6">
                 <h4 className="font-semibold text-slate-800 mb-3 flex items-center space-x-2">
@@ -268,7 +268,7 @@ const Skills: React.FC = () => {
                   ))}
                 </div>
               </div>
-              
+
               {/* Related Projects */}
               <div>
                 <h4 className="font-semibold text-slate-800 mb-3 flex items-center space-x-2">
@@ -286,7 +286,7 @@ const Skills: React.FC = () => {
                   ))}
                 </div>
               </div>
-              
+
               {/* Hover Arrow */}
               <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <ArrowRight className="w-5 h-5 text-slate-400" />
@@ -294,7 +294,7 @@ const Skills: React.FC = () => {
             </motion.div>
           ))}
         </div>
-        
+
         {/* Summary Stats */}
         <div className="mt-8 pt-6 border-t border-slate-200">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -311,7 +311,7 @@ const Skills: React.FC = () => {
               <div className="text-sm text-slate-600">関連プロジェクト</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-slate-800 mb-1">4年+</div>
+              <div className="text-2xl font-bold text-slate-800 mb-1">5年+</div>
               <div className="text-sm text-slate-600">経験年数</div>
             </div>
           </div>
@@ -323,8 +323,8 @@ const Skills: React.FC = () => {
         <h2 className="text-2xl font-bold text-slate-800 mb-6">使用ツール一覧</h2>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            'Figma', 'Adobe XD', 'Photoshop', 'Illustrator', 
-            'WordPress', 'Quasar', 'VScode', 'Notion',
+            'Figma', 'Adobe XD', 'Photoshop', 'Illustrator',
+            'WordPress', 'Quasar', 'VScode', 'Git', 'GitHub', 'Notion',
             'Slack', 'Teams', 'Backlog', 'SpreadSheet'
           ].map((tool, index) => (
             <motion.div

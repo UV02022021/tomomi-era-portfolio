@@ -1,6 +1,8 @@
+
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import {Mail, Phone, MapPin, Send, User, MessageSquare, Clock, Calendar, CheckCircle, AlertCircle, Wifi} from 'lucide-react'
+import { Mail, Phone, MapPin, Send, User, Clock, Calendar, CheckCircle, AlertCircle, Wifi } from 'lucide-react'
 import { lumi } from '../lib/lumi'
 
 const Contact: React.FC = () => {
@@ -12,6 +14,7 @@ const Contact: React.FC = () => {
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [privacyAgreed, setPrivacyAgreed] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -33,10 +36,10 @@ const Contact: React.FC = () => {
       // メール送信
       await lumi.tools.email.send({
         to: 'tomomini0815@gmail.com', // あなたのメールアドレス
-        subject: `【ポートフォリオサイト】${formData.subject}`,
+        subject: `【ポートフォリオサイト】${formData.subject} `,
         fromName: formData.name,
         html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+  < div style = "font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;" >
             <h2 style="color: #1e293b; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">
               ポートフォリオサイトからのお問い合わせ
             </h2>
@@ -58,8 +61,8 @@ const Contact: React.FC = () => {
                 このメールはポートフォリオサイトの問い合わせフォームから送信されました。
               </p>
             </div>
-          </div>
-        `,
+          </div >
+  `,
         replyTo: formData.email
       })
 
@@ -71,13 +74,13 @@ const Contact: React.FC = () => {
         subject: '',
         message: ''
       })
-      
+
       // 3秒後にフォームを再表示
       setTimeout(() => setIsSubmitted(false), 5000)
-      
+
     } catch (error: any) {
       console.error('メール送信エラー:', error)
-      
+
       if (error.message?.includes('not registered')) {
         setError('申し訳ございません。現在、問い合わせフォームは準備中です。直接メール（tomomini0815@gmail.com）にてお問い合わせください。')
       } else {
@@ -179,7 +182,7 @@ const Contact: React.FC = () => {
                   whileHover={{ scale: 1.02 }}
                   className="flex items-center space-x-4 p-4 bg-slate-50 rounded-xl border border-slate-200"
                 >
-                  <div className={`w-12 h-12 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center`}>
+                  <div className={`w - 12 h - 12 bg - gradient - to - r ${info.color} rounded - xl flex items - center justify - center`}>
                     <info.icon className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -231,7 +234,7 @@ const Contact: React.FC = () => {
         <motion.div variants={itemVariants}>
           <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg border border-slate-200">
             <h2 className="text-2xl font-bold text-slate-800 mb-6">お問い合わせフォーム</h2>
-            
+
             {/* エラーメッセージ */}
             {error && (
               <motion.div
@@ -246,7 +249,7 @@ const Contact: React.FC = () => {
                 </div>
               </motion.div>
             )}
-            
+
             {isSubmitted ? (
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -298,7 +301,7 @@ const Contact: React.FC = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-slate-700 mb-2">
                     件名 <span className="text-red-500">*</span>
@@ -319,7 +322,7 @@ const Contact: React.FC = () => {
                     <option value="その他">その他</option>
                   </select>
                 </div>
-                
+
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
                     メッセージ <span className="text-red-500">*</span>
@@ -336,12 +339,27 @@ const Contact: React.FC = () => {
                     placeholder="プロジェクトの詳細やご質問などをお聞かせください..."
                   />
                 </div>
-                
+                <div className="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    id="privacy"
+                    checked={privacyAgreed}
+                    onChange={(e) => setPrivacyAgreed(e.target.checked)}
+                    className="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500"
+                  />
+                  <label htmlFor="privacy" className="text-sm text-slate-600">
+                    <Link to="/privacy" target="_blank" className="font-medium text-slate-800 hover:text-blue-600 underline decoration-slate-300 underline-offset-2 transition-colors">
+                      個人情報の取り扱い
+                    </Link>
+                    について同意する
+                  </label>
+                </div>
+
                 <motion.button
                   type="submit"
-                  disabled={isSubmitting}
-                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                  disabled={isSubmitting || !privacyAgreed}
+                  whileHover={{ scale: (isSubmitting || !privacyAgreed) ? 1 : 1.02 }}
+                  whileTap={{ scale: (isSubmitting || !privacyAgreed) ? 1 : 0.98 }}
                   className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-4 px-6 rounded-xl hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (

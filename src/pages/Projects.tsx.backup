@@ -1,7 +1,7 @@
 
 import React, { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Calendar, Users, Wrench as Tool, ChevronDown, ChevronUp, Smartphone, Building, Shirt, Languages, Shield, Clock, Target, X, ZoomIn, ZoomOut, RotateCcw, ChevronLeft, ChevronRight, Star, CheckCircle, Lightbulb, Briefcase, AlertCircle } from 'lucide-react'
+import {Calendar, Users, Wrench as Tool, ChevronDown, ChevronUp, Smartphone, Building, Shirt, Languages, Shield, Clock, Target, X, ZoomIn, ZoomOut, RotateCcw, ChevronLeft, ChevronRight, Star, Award, TrendingUp, CheckCircle, BarChart3, Eye, Layers, Brain, Lightbulb, Rocket, Globe, Heart, Briefcase, ArrowRight, AlertCircle} from 'lucide-react'
 
 const Projects: React.FC = () => {
   const [expandedProject, setExpandedProject] = useState<number | null>(null)
@@ -34,6 +34,11 @@ const Projects: React.FC = () => {
       category: 'モバイル最適化',
       industry: 'リテール・調査',
       complexity: 'high',
+      impact: {
+        users: '1000+',
+        improvement: '40%',
+        satisfaction: '85%'
+      },
       challenges: ['レガシーシステムの制約', 'モバイル画面サイズの制限', 'リアルタイムデータ表示'],
       solutions: ['段階的リファクタリング', 'アダプティブデザイン', '効率的なデータ取得'],
       learnings: ['モバイルファーストの重要性', 'ユーザーテストの価値', 'アジャイル開発プロセス'],
@@ -50,23 +55,23 @@ const Projects: React.FC = () => {
       process: [
         {
           title: '現状分析と課題抽出',
-          description: 'PC向けダッシュボードのモバイル利用における課題を徹底的に分析。文字サイズの不足、複雑な表組みの可読性低下、頻繁な横スクロールの発生、タップ領域の狭さによる誤操作など、実際の利用シーンで発生する具体的な問題点を洗い出し、改善の優先順位を明確化。効果的な改善施策の基盤を構築しました。'
+          description: '既存ダッシュボードを分析し、操作性と情報量の課題を抽出。小さな文字や複雑な表の可読性の低さ、横スクロールが頻発するレイアウト、タップ領域不足による誤操作など、具体的なモバイル利用時の問題点を明確化した。'
         },
         {
-          title: '要件定義とユーザーストーリー',
-          description: '店舗管理者とクライアント担当者、それぞれのユーザーニーズを詳細にヒアリングし、要件を定義。外出先での素早いKPI確認、傾向分析、データフィルタリング、レポート出力など、モバイル環境で必要とされる機能を優先度順に整理し、開発チームと合意した実装範囲を明確に設定。'
+          title: '要件定義',
+          description: 'ユーザー要件と機能要件を定義。店舗管理者が外出先でも重要指標を素早く確認でき、クライアント担当者がKPIや傾向を追跡できることを優先し、KPIカード、グラフ比較、フィルタリング、レポートダウンロードなどの必須機能を設定した。'
         },
         {
-          title: '情報アーキテクチャ設計',
-          description: 'モバイル画面に最適化された情報階層を設計。最重要KPIを画面上部に配置し、一目で状況を把握できるよう工夫。詳細データはアコーディオンで段階的に展開できる構造とし、限られた画面スペースを効率的に活用できる設計を実現。'
+          title: '情報設計',
+          description: 'モバイル最適化された情報の優先度と構造を構築。KPIカードを最上部に配置し、折れ線グラフや棒グラフを使った傾向チャート、詳細データは縦積みとアコーディオンで展開可能に設計。'
         },
         {
           title: 'UIデザインとプロトタイピング',
-          description: 'タップ操作を前提とした直感的なインターフェースを設計。最小44pxのタップ領域確保、カードベースのレイアウト、モーダル・ドロワーを活用したフィルタ機能など、モバイルUXのベストプラクティスを適用。Figmaでワイヤーフレームから高精度モックアップ、インタラクティブプロトタイプまで作成し、実際の操作感を事前に検証することで開発前の課題発見を可能に。'
+          description: '直感的でタップしやすいインターフェースを設計。カードレイアウトで情報を整理し、最小44pxのタップ領域を確保。フィルタはモーダルやドロワーで展開可能にし、グラフのレスポンシブ対応やスワイプ操作を実現。Figmaでワイヤーフレームから高精度デザイン、インタラクションデザインまでを手がけ、実際の利用シーンを想定したプロトタイプを構築した。'
         },
         {
-          title: 'ユーザーテストと継続的改善',
-          description: '実際のユーザーを対象としたユーザビリティテストを実施し、KPI表示の視認性、フィルタ操作の直感性、グラフの理解しやすさを検証。ヒートマップやセッション録画による行動分析も並行して実施し、得られたインサイトをもとに継続的なUI改善を進めることで、より実用的でストレスフリーなモバイルダッシュボードを目指しています。'
+          title: 'ユーザーテストと改善',
+          description: '実際のユーザーとKPIの可読性、フィルタ操作の直感性、グラフの視認性を検証。ログやヒートマップを通じた利用状況の分析を進行中で、得られたデータに基づく定期的なUI更新により、より実用的でストレスフリーなモバイルダッシュボードを目指している。'
         }
       ]
     },
@@ -84,11 +89,16 @@ const Projects: React.FC = () => {
       technologies: ['React', 'TypeScript', 'Material-UI', 'Azure'],
       responsibilities: ['UI/UXデザイン', 'Webアプリ・モバイルアプリデザイン', 'プロトタイピング'],
       icon: Building,
-      color: 'bg-blue-500',
-      gradientColor: 'from-blue-500 to-blue-600',
+      color: 'bg-purple-500',
+      gradientColor: 'from-purple-500 to-purple-600',
       category: 'エンタープライズSaaS',
       industry: '建設・不動産',
       complexity: 'high',
+      impact: {
+        users: '500+',
+        improvement: '60%',
+        satisfaction: '92%'
+      },
       challenges: ['複雑な業務フロー', '多様なユーザー権限', 'レガシーシステム連携'],
       solutions: ['段階的なUXリニューアル', 'ロールベース設計', 'API連携最適化'],
       learnings: ['エンタープライズUXの重要性', 'ステークホルダー調整', '長期プロジェクト管理'],
@@ -108,27 +118,27 @@ const Projects: React.FC = () => {
       process: [
         {
           title: 'リサーチ・分析',
-          description: '既存システムのユーザビリティ評価とヒューリスティック評価を実施。事業部を通じて建設現場スタッフに詳細なインタビューを行い、日常業務での課題やペインポイントを特定。現場での実際の利用シーンを観察し、PC環境とモバイル環境での使い分けパターンを分析。また、競合他社のダッシュボードの並行分析も実施し、業界のベストプラクティスを体系的に調査。'
+          description: '既存システムのユーザビリティ評価とヒューリスティック評価を実施。事業部を通じて建設現場スタッフにインタビューを行い、日常業務での課題やペインポイントを特定。また、競合他社のダッシュボードの並行分析も実施した。'
         },
         {
           title: 'ペルソナ・カスタマージャーニー作成',
-          description: '現場監督、作業員、管理者の3つの主要ペルソナを作成。それぞれの業務フロー、システム利用シーン、利用頻度、デバイス環境を詳細にマッピング。各タッチポイントでの課題と改善機会を明確化し、ペルソナごとの優先機能とUIニーズを整理。特に現場監督のモバイル利用シーンを重点的に分析し、外出先での情報確認ニーズに対応する設計方針を策定することで、ユーザー中心の設計基盤を確立。'
+          description: '現場監督、作業員、管理者の3つのペルソナを作成。それぞれの業務フローとシステム利用シーンをマッピングし、各タッチポイントでの課題と改善機会を明確化した。'
         },
         {
           title: '情報アーキテクチャ設計',
-          description: '複雑な建設業務データを整理し、優先度に基づいた情報階層を構築。ダッシュボード上での情報表示順序やグルーピングを最適化し、ユーザーが必要な情報に素早くアクセスできる構造を設計。カードソート法を用いてメニュー構造を検証し、直感的なナビゲーション設計を実現。さらに、権限レベルに応じた情報の出し分けルールも設計することで、セキュリティと使いやすさを両立。'
+          description: '複雑な建設業務データを整理し、優先度に基づいた情報階層を構築。ダッシュボード上での情報表示順序やグルーピングを最適化し、ユーザーが必要な情報に素早くアクセスできる構造を設計した。'
         },
         {
           title: 'ワイヤーフレーム・プロトタイプ作成',
-          description: 'Figmaを使用し、ローファイからハイファイまで段階的にプロトタイプを作成。各機能の操作フローをインタラクティブに表現し、ステークホルダーとの認識合わせを効率的に実施。特に複雑なデータ入力フローや承認プロセスについては、実際の操作感を確認できる高精度プロトタイプを作成し、開発前に課題を洗い出すことで、後工程での修正コストを大幅に削減。'
+          description: 'Figmaを使用し、ローファイからハイファイまで段階的にプロトタイプを作成。各機能の操作フローをインタラクティブに表現し、ステークホルダーとの認識合わせを効率的に実施した。'
         },
         {
           title: 'デザインシステム構築',
-          description: '再利用可能なコンポーネントライブラリを構築。カラーパレット、タイポグラフィ、アイコンセット、ボタンスタイル、フォーム要素などを統一し、開発チームとの連携効率を大幅に向上。デザイントークンを定義し、一貫性のあるビジュアルデザインを実現。また、コンポーネントの使用ガイドラインも作成し、開発チームが迷わず実装できる環境を整備することで、プロジェクト全体の品質と効率を向上。'
+          description: '再利用可能なコンポーネントライブラリを構築。カラーパレット、タイポグラフィ、アイコンセット、ボタンスタイルなどを統一し、開発チームとの連携効率を向上させた。'
         },
         {
           title: 'ユーザビリティテスト・改善',
-          description: '実際のユーザーを対象としたタスクベースのユーザビリティテストを実施。操作ログ分析とユーザーフィードバックに基づき、ナビゲーション最適化とインターフェースの微調整を繰り返し実行。特にタスク完了率が低かった機能については、UIを再設計し、2回目のテストで大幅な改善を確認。継続的な改善サイクルを確立し、リリース後も定期的にユーザビリティ評価を実施することで、高い品質を維持。'
+          description: '実際のユーザーとタスクベースのテストを実施。操作ログ分析とユーザーフィードバックに基づき、ナビゲーション最適化とインターフェースの微調整を繰り返し実行した。'
         }
       ]
     },
@@ -146,11 +156,16 @@ const Projects: React.FC = () => {
       technologies: ['Vue.js', 'Quasar', 'JavaScript', 'Node.js'],
       responsibilities: ['UI/UXデザイン', 'デザイン', 'プロトタイピング', 'コーディング（一部）'],
       icon: Shirt,
-      color: 'bg-blue-500',
-      gradientColor: 'from-blue-500 to-blue-600',
+      color: 'bg-green-500',
+      gradientColor: 'from-green-500 to-green-600',
       category: 'ECダッシュボード',
       industry: 'アパレル・ファッション',
       complexity: 'medium',
+      impact: {
+        users: '200+',
+        improvement: '45%',
+        satisfaction: '88%'
+      },
       challenges: ['大量SKUデータ表示', '在庫情報の複雑性', '売上分析の視認性'],
       solutions: ['データグリッド最適化', '階層的情報設計', 'ビジュアル分析ツール'],
       learnings: ['ECサイト特有のUX', 'Vue.jsフレームワーク', 'データ可視化技法'],
@@ -168,23 +183,23 @@ const Projects: React.FC = () => {
       process: [
         {
           title: 'ヒアリング・リサーチ',
-          description: 'アパレル業界特有の在庫管理、売上分析、出荷、生産などの円滑な業務運営のためのナビゲーションとニーズを詳細にヒアリング。商品企画から販売までのバリューチェーン全体を理解し、各部門のスタッフが日常的に確認する情報と操作フローを洗い出し。特にシーズン切り替え時の在庫管理や、SKU単位での売上分析ニーズを重点的に調査し、業界特有の課題を明確化することで、実務に即した設計の土台を構築。'
+          description: 'アパレル業界特有の在庫管理、売上分析、出荷、生産などの円滑な業務運営のためのナビゲーションとニーズを詳細にヒアリングし、アパレル業界における売上に至るまでのフローをリサーチした。'
         },
         {
           title: 'データ構造分析',
-          description: '商品データ、売上データ、在庫データの関係性を詳細に分析し、効率的な情報表示方法を検討。大量のSKUデータ（色・サイズ・店舗別の組み合わせ）に対する見やすいレイアウトを研究し、階層的な情報設計を採用。ドリルダウン方式で詳細情報にアクセスできる構造を設計し、画面の情報密度を最適化することで、ユーザーが必要な情報に迅速に到達できる環境を整備。'
+          description: '商品データ、売上データ、在庫データの関係性を分析し、効率的な情報表示方法を検討。大量のSKUデータに対する見やすいレイアウトをリサーチした。'
         },
         {
           title: 'UIデザイン・一貫性確保',
-          description: '大量の情報を考慮した明確な視覚階層でのレイアウト設計を実施。色、タイポグラフィ、余白の統一により、複雑な情報を整理・表示できるデザインシステムを構築。カラーパレットは売上状況や在庫状態を直感的に理解できるよう設計し、重要な情報が一目で分かるビジュアルデザインを実現。さらに、データテーブルの可読性を高めるため、行の高さやセル内の余白も細かく調整することで、長時間の使用でも目が疲れにくいデザインを実現。'
+          description: '大量の情報を考慮した明確な視覚階層でのレイアウト設計を実施。色、タイポグラフィ、余白の統一により、複雑な情報を整理・表示できるデザインシステムを構築した。'
         },
         {
           title: 'インタラクションデザイン',
-          description: 'フィルタリング、ソート、ドリルダウン機能など、データ探索に必要なインタラクションを設計。直感的な操作で深い分析を可能にするナビゲーションを実現し、複数条件での絞り込みやクロス集計も簡単に実行できるUIを構築。特に頻繁に使用される操作については、ショートカットやクイックアクセス機能を設け、業務効率を大幅に向上させることで、日々の業務をスムーズに。'
+          description: 'フィルタリング、ソート、ドリルダウン機能など、データ探索に必要なインタラクションを設計。直感的な操作で深い分析を可能にするナビゲーションを実現した。'
         },
         {
           title: 'フロントエンド実装（一部）',
-          description: 'Quasarフレームワークを使用したレスポンシブデザインの実装を担当。Vue.jsベースのコンポーネント開発により、保守性の高いコードベースを構築。特にデータテーブルコンポーネントやフィルタリング機能については、再利用性を考慮した設計を行い、開発チームと密接に連携しながら実装を進捗。パフォーマンスにも配慮し、大量データの表示でもスムーズな操作感を実現することで、ユーザー体験を大きく向上。'
+          description: 'Quasarフレームワークを使用したレスポンシブデザインの実装。Vue.jsベースのコンポーネント開発により、保守性の高いコードベースを構築した。'
         }
       ]
     },
@@ -202,11 +217,16 @@ const Projects: React.FC = () => {
       technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
       responsibilities: ['UI/UXデザイン', 'デザイン', 'プロトタイピング'],
       icon: Languages,
-      color: 'bg-blue-500',
-      gradientColor: 'from-blue-500 to-blue-600',
+      color: 'bg-indigo-500',
+      gradientColor: 'from-indigo-500 to-indigo-600',
       category: '権限管理システム',
       industry: '翻訳・多言語',
       complexity: 'medium',
+      impact: {
+        users: '300+',
+        improvement: '35%',
+        satisfaction: '90%'
+      },
       challenges: ['複雑な権限設計', '多言語対応', 'ワークフロー管理'],
       solutions: ['ロールベースアクセス制御', 'カラーコーディングシステム', 'ステータス可視化'],
       learnings: ['権限設計のベストプラクティス', 'アクセシビリティ設計', 'グローバルUX考慮'],
@@ -224,19 +244,19 @@ const Projects: React.FC = () => {
       process: [
         {
           title: '権限別UI設計',
-          description: 'ユーザー、テナント管理者、システム管理者の3つの権限レベルに応じた画面設計を実施。それぞれの役割に最適化された情報表示とアクセス制御を設計し、各権限レベルで利用できる機能を明確化。誤操作や情報漏洩を防ぐ設計を実現しました。また、権限変更時のスムーズな画面遷移も考慮し、ユーザーが混乱しないナビゲーションを設計することで、安全で使いやすいシステムを構築。'
+          description: 'ユーザー、テナント管理者、システム管理者の3つの権限レベルに応じた画面設計。それぞれの役割に最適化された情報表示とアクセス制御を設計した。'
         },
         {
           title: 'カラーシステム設計',
-          description: '目的別カラーパレットを詳細に設計（一般ユーザー：青、管理者：緑、システム：紺）。権限レベルを視覚的に識別できるデザインシステムを構築し、各カラーのWCAGアクセシビリティ基準への準拠も確認済み。ステータス表示やアラートにも一貫したカラールールを適用し、直感的な理解を促進することで、ユーザーが一目で状況を把握できるインターフェースを実現。'
+          description: '目的別カラーパレットを設計（一般ユーザー：青、管理者：緑、システム：紺）。権限レベルを視覚的に識別できるデザインシステムを構築した。'
         },
         {
           title: '翻訳ワークフロー設計',
-          description: '翻訳依頼から完了までのワークフローを詳細に可視化。進行状況、品質チェック、承認プロセスを直感的に理解できるインターフェースを設計。タイムライン表示やステータスバッジを活用し、複数の翻訳案件を同時に管理できるUIを実現しました。また、差し戻し時のフィードバック機能も設計し、コミュニケーションの効率化を図ることで、プロジェクト全体の生産性を向上。'
+          description: '翻訳依頼から完了までのワークフローを可視化。進行状況、品質チェック、承認プロセスを直感的に理解できるインターフェースを設計した。'
         },
         {
           title: 'アクセシビリティ対応',
-          description: '多様なユーザーを考慮したアクセシブルなデザインを実装。WCAG 2.1 AAレベルに準拠した色のコントラスト比を確保し、キーボード操作でも全機能にアクセス可能な設計を実現しました。スクリーンリーダー対応のための適切なaria-labelやrole属性を追加し、フォーカス状態の視覚的フィードバックも強化することで、すべてのユーザーが快適に利用できるシステムを構築。'
+          description: '多様なユーザーを考慮したアクセブルなデザインを作成。色のコントラスト最適化を実装した。'
         }
       ]
     },
@@ -254,11 +274,16 @@ const Projects: React.FC = () => {
       technologies: ['React Native', 'IoT SDK', 'Firebase'],
       responsibilities: ['UI/UXデザイン', 'デザイン', 'プロトタイピング'],
       icon: Shield,
-      color: 'bg-blue-500',
-      gradientColor: 'from-blue-500 to-blue-600',
+      color: 'bg-red-500',
+      gradientColor: 'from-red-500 to-red-600',
       category: 'IoT連携アプリ',
       industry: '自動車・安全',
       complexity: 'high',
+      impact: {
+        users: '150+',
+        improvement: '50%',
+        satisfaction: '95%'
+      },
       challenges: ['IoTデバイス連携', '限られた操作時間', '緊急時対応'],
       solutions: ['ワンタップ操作', 'エラーハンドリング', 'リアルタイム状態表示'],
       learnings: ['IoT UX設計', 'ハードウェア連携', '緊急時UI設計'],
@@ -276,23 +301,23 @@ const Projects: React.FC = () => {
       process: [
         {
           title: 'IoTデバイス連携設計',
-          description: 'アルコール検知器からの信号受信とアプリ連携機構を詳細に設計。ハードウェアとソフトウェアの境界でのユーザーエクスペリエンスを最適化し、デバイス接続状態のリアルタイム表示や、検知結果の即座フィードバックを実現。Bluetooth接続の安定性を考慮したエラーハンドリングも設計。'
+          description: 'アルコール検知器からの信号受信とアプリ連携機構を設計。ハードウェアとソフトウェアの境界でのユーザーエクスペリエンスを最適化した。'
         },
         {
           title: 'シンプル操作フロー設計',
-          description: '運転前の限られた時間内での操作を想定し、最小タップでアルコールチェックが完了するナビゲーションを設計。ワンタップでの機能起動を実現し、複雑なメニュー階層を排除することで、緊急時や時間がない状況でもストレスなく操作できるUIを実現。ユーザビリティテストでも操作時間の短縮を検証済み。'
+          description: '運転前の限られた時間内での操作を想定し、最小タップでアルコールチェックが完了するナビゲーションを設計。ワンタップでの機能起動を実現した。'
         },
         {
           title: 'ダッシュボード管理機能',
-          description: 'ドライバーの検査履歴、車両管理、アラート管理を管理者ダッシュボードに集約。記録管理機能の並行設計も実施し、法的要件を満たすデータ保存とレポート出力機能を設計。異常検知時のアラート通知システムも構築し、管理者が迅速に対応できる体制を整備。'
+          description: 'ドライバーの検査履歴、車両管理、アラート管理を管理者ダッシュボードに集約。記録管理機能の並行設計も実施した。'
         },
         {
           title: 'モバイル最適化',
-          description: '車内での使用を想定したモバイルファーストデザインを実装。片手操作を考慮したボタン配置、大きなタップ領域（最小44px）、高コントラストな色使いなど、車内環境での視認性を重視した設計を実現。また、直射日光下でも読みやすい画面設計や、振動環境でも誤タップを防ぐ工夫を反映。'
+          description: '車内での使用を想定したモバイルファーストデザイン。片手操作を考慮した画面視認性を重視した設計を実装した。'
         },
         {
           title: 'エラーハンドリング設計',
-          description: 'デバイス接続エラー、検査失敗、システム障害に対する適切なエラーメッセージと復旧手順を詳細に設計。ユーザーが混乱なく問題解決できるガイダンスを提供し、エラー状況を視覚的に分かりやすく表示。緊急時のサポート連絡先や、オフラインでも使用できるバックアップ手順も設計し、安心して利用できるシステムを構築。'
+          description: 'デバイス接続エラー、検査失敗、システム障害に対する適切なエラーメッセージと復旧手順を設計。ユーザーが混乱なく問題解決できるガイダンスを提供した。'
         }
       ]
     }
@@ -307,13 +332,13 @@ const Projects: React.FC = () => {
       setExpandedProject(projectId)
       // 該当プロジェクトの位置を取得してスクロール
       setTimeout(() => {
-        const projectElement = document.getElementById(`project - ${projectId} `)
+        const projectElement = document.getElementById(`project-${projectId}`)
         if (projectElement) {
           const elementTop = projectElement.offsetTop
           const offset = 20 // 少し余白を持たせる
-          window.scrollTo({
-            top: elementTop - offset,
-            behavior: 'smooth'
+          window.scrollTo({ 
+            top: elementTop - offset, 
+            behavior: 'smooth' 
           })
         }
       }, 100)
@@ -437,7 +462,7 @@ const Projects: React.FC = () => {
               これまでに手がけたUI/UXデザインプロジェクトの詳細
             </p>
           </div>
-
+          
           {/* Project Stats */}
           <div className="flex flex-wrap gap-4 lg:gap-6">
             <div className="flex items-center space-x-2">
@@ -461,7 +486,7 @@ const Projects: React.FC = () => {
         {projects.map((project) => (
           <motion.div
             key={project.id}
-            id={`project - ${project.id} `}
+            id={`project-${project.id}`}
             layout
             className="bg-white rounded-xl sm:rounded-2xl shadow-lg border border-slate-200 overflow-hidden hover:shadow-xl transition-shadow duration-300"
           >
@@ -481,41 +506,61 @@ const Projects: React.FC = () => {
                           <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-800 leading-tight">
                             {project.shortTitle || project.title}
                           </h2>
-                          <span className={`inline-flex items-center px-2.5 py-0.5 text-[10px] font-semibold rounded-full ${project.status === '進行中'
-                            ? 'bg-orange-500 text-white shadow-sm'
-                            : 'bg-green-500 text-white shadow-sm'
-                            }`}>
+                          <span className={`inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full ${
+                            project.status === '進行中'
+                              ? 'bg-orange-500 text-white shadow-sm' 
+                              : 'bg-green-500 text-white shadow-sm'
+                          }`}>
                             {project.status === '進行中' && <div className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse" />}
                             {project.status}
                           </span>
                         </div>
-
+                        
                         {/* Category and Industry badges */}
                         <div className="flex flex-wrap gap-2 mb-3">
                           {project.category && (
-                            <span className="px-2 py-0.5 bg-slate-100 text-slate-700 text-[10px] font-medium rounded-md">
+                            <span className="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-medium rounded-md">
                               {project.category}
                             </span>
                           )}
                           {project.industry && (
-                            <span className="px-2 py-0.5 bg-purple-100 text-purple-700 text-[10px] font-medium rounded-md">
+                            <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-md">
                               {project.industry}
                             </span>
                           )}
                           {project.complexity && (
-                            <span className={`px-2 py-0.5 text-[10px] font-medium rounded-md ${project.complexity === 'high' ? 'bg-red-100 text-red-700' :
+                            <span className={`px-2 py-1 text-xs font-medium rounded-md ${
+                              project.complexity === 'high' ? 'bg-red-100 text-red-700' :
                               project.complexity === 'medium' ? 'bg-yellow-100 text-yellow-700' :
-                                'bg-green-100 text-green-700'
-                              }`}>
+                              'bg-green-100 text-green-700'
+                            }`}>
                               複雑度: {project.complexity === 'high' ? '高' : project.complexity === 'medium' ? '中' : '低'}
                             </span>
                           )}
                         </div>
                       </div>
                     </div>
-
+                    
                     <p className="text-slate-600 mb-4 text-sm sm:text-base leading-relaxed">{project.overview}</p>
-
+                    
+                    {/* Quick Stats */}
+                    {project.impact && (
+                      <div className="grid grid-cols-3 gap-3 mb-4">
+                        <div className="text-center p-2 bg-slate-50 rounded-lg">
+                          <div className="text-lg font-bold text-slate-800">{project.impact.users}</div>
+                          <div className="text-xs text-slate-600">ユーザー</div>
+                        </div>
+                        <div className="text-center p-2 bg-emerald-50 rounded-lg">
+                          <div className="text-lg font-bold text-emerald-700">+{project.impact.improvement}</div>
+                          <div className="text-xs text-slate-600">改善</div>
+                        </div>
+                        <div className="text-center p-2 bg-blue-50 rounded-lg">
+                          <div className="text-lg font-bold text-blue-700">{project.impact.satisfaction}</div>
+                          <div className="text-xs text-slate-600">満足度</div>
+                        </div>
+                      </div>
+                    )}
+                    
                     {/* Enhanced Project Meta */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs sm:text-sm">
                       <div className="flex items-center space-x-2 text-slate-600 p-2 bg-slate-50 rounded-lg">
@@ -540,7 +585,7 @@ const Projects: React.FC = () => {
                         </div>
                       </div>
                     </div>
-
+                    
                     {/* Technologies */}
                     {project.technologies && (
                       <div className="mt-4">
@@ -549,7 +594,7 @@ const Projects: React.FC = () => {
                           {project.technologies.map((tech, techIndex) => (
                             <span
                               key={techIndex}
-                              className="px-2 py-0.5 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 text-[10px] font-medium rounded-md border border-indigo-200"
+                              className="px-2 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 text-xs font-medium rounded-md border border-indigo-200"
                             >
                               {tech}
                             </span>
@@ -565,28 +610,18 @@ const Projects: React.FC = () => {
               <div className="mb-4 sm:mb-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                   {project.images.map((image, index) => (
-                    <div
+                    <div 
                       key={index}
                       className="relative aspect-video bg-slate-100 rounded-lg overflow-hidden cursor-pointer group p-2 sm:p-3"
                       onClick={() => openImageModal(image, project.id)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          e.preventDefault();
-                          openImageModal(image, project.id);
-                        }
-                      }}
-                      aria-label={`${project.title} - 制作物 ${index + 1} を拡大表示`}
                     >
-                      <img
-                        src={image}
-                        alt={`${project.title} - 制作物 ${index + 1} `}
+                      <img 
+                        src={image} 
+                        alt={`${project.title} - 制作物 ${index + 1}`}
                         className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-                        <ZoomIn className="w-4 h-4 sm:w-6 sm:h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
+                        <ZoomIn className="w-4 h-4 sm:w-6 sm:h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </div>
                     </div>
                   ))}
@@ -596,17 +631,15 @@ const Projects: React.FC = () => {
               {/* Expand Button */}
               <button
                 onClick={() => toggleProject(project.id)}
-                className="w-full flex items-center justify-center space-x-2 py-2 sm:py-3 px-4 bg-slate-50 hover:bg-slate-100 rounded-lg sm:rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                aria-expanded={expandedProject === project.id}
-                aria-label={expandedProject === project.id ? `${project.shortTitle || project.title} の詳細を閉じる` : `${project.shortTitle || project.title} の詳細を見る`}
+                className="w-full flex items-center justify-center space-x-2 py-2 sm:py-3 px-4 bg-slate-50 hover:bg-slate-100 rounded-lg sm:rounded-xl transition-colors"
               >
                 <span className="font-medium text-slate-700 text-sm sm:text-base">
                   {expandedProject === project.id ? '詳細を閉じる' : '詳細を見る'}
                 </span>
                 {expandedProject === project.id ? (
-                  <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 text-slate-600" aria-hidden="true" />
+                  <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 text-slate-600" />
                 ) : (
-                  <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-slate-600" aria-hidden="true" />
+                  <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-slate-600" />
                 )}
               </button>
             </div>
@@ -622,8 +655,30 @@ const Projects: React.FC = () => {
                   className="border-t border-slate-200"
                 >
                   <div className="p-4 sm:p-6 lg:p-8 space-y-6 sm:space-y-8">
-
-
+                    {/* Project Impact & Results */}
+                    {project.impact && (
+                      <div className="bg-gradient-to-r from-emerald-50 to-blue-50 rounded-xl p-6">
+                        <h3 className="text-base sm:text-lg font-semibold text-slate-800 mb-4 flex items-center space-x-2">
+                          <TrendingUp className="w-5 h-5 text-emerald-600" />
+                          <span>プロジェクト成果・インパクト</span>
+                        </h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                          <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                            <div className="text-2xl font-bold text-emerald-600 mb-2">{project.impact.users}</div>
+                            <div className="text-sm text-slate-600 font-medium">対象ユーザー数</div>
+                          </div>
+                          <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                            <div className="text-2xl font-bold text-blue-600 mb-2">+{project.impact.improvement}</div>
+                            <div className="text-sm text-slate-600 font-medium">パフォーマンス改善</div>
+                          </div>
+                          <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                            <div className="text-2xl font-bold text-purple-600 mb-2">{project.impact.satisfaction}</div>
+                            <div className="text-sm text-slate-600 font-medium">ユーザー満足度</div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                    
                     {/* Challenges & Solutions */}
                     {project.challenges && project.solutions && (
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -641,7 +696,7 @@ const Projects: React.FC = () => {
                             ))}
                           </ul>
                         </div>
-
+                        
                         <div className="bg-green-50 rounded-xl p-6">
                           <h4 className="font-semibold text-slate-800 mb-4 flex items-center space-x-2">
                             <CheckCircle className="w-5 h-5 text-green-600" />
@@ -658,7 +713,7 @@ const Projects: React.FC = () => {
                         </div>
                       </div>
                     )}
-
+                    
                     {/* Key Learnings */}
                     {project.learnings && (
                       <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-6">
@@ -780,27 +835,24 @@ const Projects: React.FC = () => {
                 <div className="flex space-x-2">
                   <button
                     onClick={handleZoomIn}
-                    className="w-10 h-10 sm:w-12 sm:h-12 bg-black bg-opacity-70 rounded-full flex items-center justify-center text-white hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-white"
+                    className="w-10 h-10 sm:w-12 sm:h-12 bg-black bg-opacity-70 rounded-full flex items-center justify-center text-white hover:bg-opacity-90 transition-colors"
                     title="拡大"
-                    aria-label="画像を拡大"
                   >
-                    <ZoomIn className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
+                    <ZoomIn className="w-5 h-5 sm:w-6 sm:h-6" />
                   </button>
                   <button
                     onClick={handleZoomOut}
-                    className="w-10 h-10 sm:w-12 sm:h-12 bg-black bg-opacity-70 rounded-full flex items-center justify-center text-white hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-white"
+                    className="w-10 h-10 sm:w-12 sm:h-12 bg-black bg-opacity-70 rounded-full flex items-center justify-center text-white hover:bg-opacity-90 transition-colors"
                     title="縮小"
-                    aria-label="画像を縮小"
                   >
-                    <ZoomOut className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
+                    <ZoomOut className="w-5 h-5 sm:w-6 sm:h-6" />
                   </button>
                   <button
                     onClick={handleResetZoom}
-                    className="w-10 h-10 sm:w-12 sm:h-12 bg-black bg-opacity-70 rounded-full flex items-center justify-center text-white hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-white"
+                    className="w-10 h-10 sm:w-12 sm:h-12 bg-black bg-opacity-70 rounded-full flex items-center justify-center text-white hover:bg-opacity-90 transition-colors"
                     title="リセット"
-                    aria-label="ズームをリセット"
                   >
-                    <RotateCcw className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
+                    <RotateCcw className="w-5 h-5 sm:w-6 sm:h-6" />
                   </button>
                 </div>
                 <button

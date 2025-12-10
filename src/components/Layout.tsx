@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import {LayoutDashboard, FolderOpen, Settings, Mail, Menu, X, MapPin, Phone, FileText} from 'lucide-react'
+import { LayoutDashboard, FolderOpen, Settings, Mail, Menu, X, MapPin, Phone, FileText } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 interface LayoutProps {
@@ -30,8 +30,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <div className="lg:hidden bg-white shadow-sm border-b border-slate-200 px-4 py-3 flex items-center justify-between sticky top-0 z-40">
         <div className="flex items-center space-x-3">
           <div className="w-8 h-8 rounded-lg overflow-hidden">
-            <img 
-              src="/LOGO.svg" 
+            <img
+              src="/LOGO.svg"
               alt="恵良友美"
               className="w-full h-full object-cover"
             />
@@ -53,15 +53,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="p-8 border-b border-slate-700">
             <div className="text-center">
               <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-slate-600">
-                <img 
-                  src="https://static.lumi.new/47/47c58cea288aa340f01af79ca581ab77.svg" 
+                <img
+                  src="https://static.lumi.new/47/47c58cea288aa340f01af79ca581ab77.svg"
                   alt="恵良友美"
                   className="w-full h-full object-cover"
                 />
               </div>
               <h1 className="text-2xl font-bold text-white mb-2">Tomomi Era</h1>
               <p className="text-slate-300 font-medium mb-4">UI/UXデザイナー</p>
-              
+
               <div className="space-y-2 text-sm text-slate-400">
                 <div className="flex items-center justify-center space-x-2">
                   <MapPin className="w-4 h-4" />
@@ -88,11 +88,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   <li key={item.path}>
                     <Link
                       to={item.path}
-                      className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${
-                        isActive
+                      className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${isActive
                           ? 'bg-blue-600 text-white shadow-lg'
                           : 'text-slate-300 hover:bg-slate-700 hover:text-white'
-                      }`}
+                        }`}
                     >
                       <item.icon className="w-5 h-5" />
                       <span className="font-medium">{item.label}</span>
@@ -125,8 +124,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <div className="p-6 border-b border-slate-700">
                   <div className="text-center">
                     <div className="w-16 h-16 rounded-full mx-auto mb-3 overflow-hidden ring-4 ring-slate-600">
-                      <img 
-                        src="https://static.lumi.new/47/47c58cea288aa340f01af79ca581ab77.svg" 
+                      <img
+                        src="https://static.lumi.new/47/47c58cea288aa340f01af79ca581ab77.svg"
                         alt="恵良友美"
                         className="w-full h-full object-cover"
                       />
@@ -135,7 +134,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     <p className="text-slate-300 text-sm">UI/UXデザイナー</p>
                   </div>
                 </div>
-                
+
                 <nav className="p-6">
                   <ul className="space-y-2">
                     {navItems.map((item) => {
@@ -145,11 +144,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                           <Link
                             to={item.path}
                             onClick={toggleMobileMenu}
-                            className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${
-                              isActive
+                            className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${isActive
                                 ? 'bg-blue-600 text-white shadow-lg'
                                 : 'text-slate-300 hover:bg-slate-700 hover:text-white'
-                            }`}
+                              }`}
                           >
                             <item.icon className="w-5 h-5" />
                             <span className="font-medium">{item.label}</span>
@@ -168,6 +166,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className="flex-1 lg:ml-80">
           <main className="p-6 lg:p-8">
             {children}
+
+            {/* Footer */}
+            <footer className="mt-12 pt-8 border-t border-slate-200 text-center text-slate-500 text-sm">
+              <p>© {new Date().getFullYear()} Tomomi Era. All Rights Reserved.</p>
+            </footer>
           </main>
         </div>
       </div>

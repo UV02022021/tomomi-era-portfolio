@@ -11,7 +11,7 @@ const Dashboard: React.FC = () => {
     { icon: TrendingUp, label: 'プロジェクト完了', value: '5+', color: 'bg-blue-500', change: '+2 今年', description: '多様な業界でのUI/UX改善実績' },
     { icon: Timer, label: 'デザイナー歴', value: '5年+', color: 'bg-slate-500', change: '継続中', description: '継続的なスキルアップと学習' },
     { icon: Award, label: '専門分野', value: '4領域+', color: 'bg-green-500', change: '拡張中', description: 'SaaS・モバイル・ダッシュボード・IoT' },
-    { icon: Calendar, label: '現在参画中', value: '1件+個人開発', color: 'bg-orange-500', change: 'アクティブ', description: 'ミステリーショッピングダッシュボード' }];
+    { icon: Calendar, label: '現在参画中', value: '1件+', color: 'bg-orange-500', change: 'アクティブ', description: 'ミステリーショッピングダッシュボード' }];
 
   const achievements = [
     {

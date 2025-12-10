@@ -296,26 +296,7 @@ const Skills: React.FC = () => {
         </div>
 
         {/* Summary Stats */}
-        <div className="mt-8 pt-6 border-t border-slate-200">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-slate-800 mb-1">6+</div>
-              <div className="text-sm text-slate-600">専門分野</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-slate-800 mb-1">15+</div>
-              <div className="text-sm text-slate-600">手法・アプローチ</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-slate-800 mb-1">12+</div>
-              <div className="text-sm text-slate-600">関連プロジェクト</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-slate-800 mb-1">5年+</div>
-              <div className="text-sm text-slate-600">経験年数</div>
-            </div>
-          </div>
-        </div>
+
       </motion.div>
 
       {/* Tools Overview */}

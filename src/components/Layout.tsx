@@ -29,9 +29,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       {/* Mobile Header - 固定表示 */}
       <div className="lg:hidden bg-white shadow-sm border-b border-slate-200 px-4 py-3 flex items-center justify-between sticky top-0 z-40">
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 rounded-lg overflow-hidden">
+          <div className="w-8 h-8 rounded-full overflow-hidden">
             <img
-              src="/LOGO.svg"
+              src="https://static.lumi.new/47/47c58cea288aa340f01af79ca581ab77.svg"
               alt="恵良友美"
               className="w-full h-full object-cover"
             />
@@ -89,8 +89,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     <Link
                       to={item.path}
                       className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${isActive
-                          ? 'bg-blue-600 text-white shadow-lg'
-                          : 'text-slate-300 hover:bg-slate-700 hover:text-white'
+                        ? 'bg-blue-600 text-white shadow-lg'
+                        : 'text-slate-300 hover:bg-slate-700 hover:text-white'
                         }`}
                     >
                       <item.icon className="w-5 h-5" />
@@ -145,8 +145,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                             to={item.path}
                             onClick={toggleMobileMenu}
                             className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${isActive
-                                ? 'bg-blue-600 text-white shadow-lg'
-                                : 'text-slate-300 hover:bg-slate-700 hover:text-white'
+                              ? 'bg-blue-600 text-white shadow-lg'
+                              : 'text-slate-300 hover:bg-slate-700 hover:text-white'
                               }`}
                           >
                             <item.icon className="w-5 h-5" />

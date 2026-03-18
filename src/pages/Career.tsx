@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import {Calendar, MapPin, Users, Code, Palette, Target, Clock, Lightbulb, Briefcase, ExternalLink} from 'lucide-react'
+import {Calendar, MapPin, Code, Target, Briefcase, ExternalLink} from 'lucide-react'
 
 const Career: React.FC = () => {
   const experiences = [
@@ -99,7 +99,7 @@ const Career: React.FC = () => {
       className="space-y-6 sm:space-y-8"
     >
       {/* Header - 左寄せに修正 */}
-      <div className="text-left px-4 sm:px-0">
+      <div className="text-left px-0 sm:px-0">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mb-2">
           職務経歴
         </h1>
@@ -109,7 +109,7 @@ const Career: React.FC = () => {
       </div>
 
       {/* プロフィール画像とリンクセクション */}
-      <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg border border-slate-200 p-3 sm:p-6 lg:p-8 mx-3 sm:mx-0">
+      <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg border border-slate-200 p-3 sm:p-6 lg:p-8 mx-0 sm:mx-0">
         <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-3 sm:space-y-0 sm:space-x-6">
           <div className="flex-shrink-0">
             <div className="w-20 h-20 sm:w-32 sm:h-32 rounded-full overflow-hidden">
@@ -143,7 +143,7 @@ const Career: React.FC = () => {
       </div>
 
       {/* Timeline */}
-      <div className="relative px-3 sm:px-0">
+      <div className="relative px-0 sm:px-0">
         {/* Timeline Line - 基準位置：left-8 (32px) / left-12 (48px) */}
         <div className="absolute left-8 sm:left-12 top-0 bottom-0 w-0.5 bg-slate-200"></div>
 

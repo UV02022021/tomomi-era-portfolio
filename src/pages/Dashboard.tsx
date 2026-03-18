@@ -223,7 +223,7 @@ const Dashboard: React.FC = () => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="space-y-4 sm:space-y-6 lg:space-y-8 p-3 sm:p-4 lg:p-0">
+      className="space-y-4 sm:space-y-6 lg:space-y-8 lg:p-0">
 
       {/* Header */}
       <motion.div variants={itemVariants}>

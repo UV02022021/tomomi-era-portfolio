@@ -38,7 +38,7 @@ const Projects: React.FC = () => {
       solutions: ['段階的リファクタリング', 'アダプティブデザイン', '効率的なデータ取得'],
       learnings: ['モバイルファーストの重要性', 'ユーザーテストの価値', 'アジャイル開発プロセス'],
       images: [
-        'https://static.lumi.new/5a/5a05a32d59f8a277336b3170c5464a79.png'
+        '/assets/projects/project1_1.png'
       ],
       overview: '既存のダッシュボードをモバイル環境に最適化し、外出先でもミステリーショッピング結果の可視化を快適に利用できるようにする。',
       keyPoints: [
@@ -93,10 +93,10 @@ const Projects: React.FC = () => {
       solutions: ['段階的なUXリニューアル', 'ロールベース設計', 'API連携最適化'],
       learnings: ['エンタープライズUXの重要性', 'ステークホルダー調整', '長期プロジェクト管理'],
       images: [
-        'https://static.lumi.new/7b/7bc253d4d171c364db8031c099d5feaf.png',
-        'https://static.lumi.new/95/95e0cf1ed7968e0934d8b5f381099f46.png',
-        'https://static.lumi.new/ea/eaa44a901ac60b81d27d0ba2f70fc323.png',
-        'https://static.lumi.new/10/10261ace96f0388c3ef2d15927cf24f9.png'
+        '/assets/projects/project2_1.png',
+        '/assets/projects/project2_2.png',
+        '/assets/projects/project2_3.png',
+        '/assets/projects/project2_4.png'
       ],
       overview: '建設業界向け基幹システムのダッシュボード改修と新機能作成。',
       keyPoints: [
@@ -155,8 +155,8 @@ const Projects: React.FC = () => {
       solutions: ['データグリッド最適化', '階層的情報設計', 'ビジュアル分析ツール'],
       learnings: ['ECサイト特有のUX', 'Vue.jsフレームワーク', 'データ可視化技法'],
       images: [
-        'https://static.lumi.new/5d/5d033d0d2b014d0205c3e448285d3fdb.png',
-        'https://static.lumi.new/fd/fd0bc53629186857978f89bc93212934.png'
+        '/assets/projects/project3_1.png',
+        '/assets/projects/project3_2.png'
       ],
       overview: 'アパレル企業向けダッシュボードの刷新と新機能作成。',
       keyPoints: [
@@ -211,8 +211,8 @@ const Projects: React.FC = () => {
       solutions: ['ロールベースアクセス制御', 'カラーコーディングシステム', 'ステータス可視化'],
       learnings: ['権限設計のベストプラクティス', 'アクセシビリティ設計', 'グローバルUX考慮'],
       images: [
-        'https://static.lumi.new/fa/fa7105d581f0b4047719bfc3ea0ff69a.png',
-        'https://static.lumi.new/5b/5b6c9fb54924fa5587c7a3d828d2d100.png'
+        '/assets/projects/project4_1.png',
+        '/assets/projects/project4_2.png'
       ],
       overview: '翻訳アプリのユーザーページ（新機能追加）、テナント管理、システム管理ページを作成。',
       keyPoints: [
@@ -263,8 +263,8 @@ const Projects: React.FC = () => {
       solutions: ['ワンタップ操作', 'エラーハンドリング', 'リアルタイム状態表示'],
       learnings: ['IoT UX設計', 'ハードウェア連携', '緊急時UI設計'],
       images: [
-        'https://static.lumi.new/9c/9c024d5198a6a7198b2abe4c6b13bcae.png',
-        'https://static.lumi.new/e0/e06afa3b0b9dbf5a0980eab87341a1a2.png'
+        '/assets/projects/project5_1.png',
+        '/assets/projects/project5_2.png'
       ],
       overview: '安全運転支援サービス（自動制御アプリ）のモバイル画面設計とダッシュボード新機能追加設計。',
       keyPoints: [
@@ -427,7 +427,7 @@ const Projects: React.FC = () => {
       ref={projectsContainerRef}
     >
       {/* Header */}
-      <div className="px-4 sm:px-0">
+      <div className="px-0 sm:px-0">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
           <div className="mb-4 lg:mb-0">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mb-2">
@@ -457,7 +457,7 @@ const Projects: React.FC = () => {
       </div>
 
       {/* Projects List */}
-      <div className="space-y-4 sm:space-y-6 px-4 sm:px-0">
+      <div className="space-y-4 sm:space-y-6 px-0 sm:px-0">
         {projects.map((project) => (
           <motion.div
             key={project.id}

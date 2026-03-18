@@ -164,7 +164,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
         {/* Main Content */}
         <div className="flex-1 lg:ml-80">
-          <main className="p-6 lg:p-8">
+          <main className="p-3 lg:p-8">
             {children}
 
             {/* Footer */}
